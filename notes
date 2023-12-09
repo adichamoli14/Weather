@@ -1,0 +1,18 @@
+# Optional Chaining Operator
+    Operator that makes easy to acccess nested properties
+
+# Description
+    JSON object mei multiple level mei nested JSON Object ho skte hai, Abb agr aap kisi bhi JSON object k and kisi bhi particular property ko access krna chahte hai yeh Optional Chaining Operator se krr skte hai. Agr property nhi hui object k andr toh Optional Chaining Operator error throw nhi krta, uske bdle wo sirf undefined return krr deta hai
+
+# Nested JSON Objects
+alice
+    address -> {city ->newyork} {state -> newyork} {zip code ->1101}
+        
+# Using optional Chaining Operator
+alice?.address?.zip       
+    # Desc :
+        Kya alice naam ka object hai (?), hai toh uske andr jao (.), address naam ka object hai (?), hai toh uske andr jao (.), ab zip pe jao 
+
+    
+
+                    
