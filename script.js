@@ -13,8 +13,6 @@ const API_KEY = 'da9c2364505e4a329fdf30179101b15f';
 currentTab.classList.add('current-tab');
 getfromSessionStorage();
 
-//oldTab-> clickedTab           newTab->currentTab
-
 function switchTab(clickedTab){
     if (currentTab != clickedTab){
         currentTab.classList.remove('current-tab'); //background colour htaya grey wala
@@ -167,19 +165,21 @@ async function fetchSearchWeatherInfo(city){
     try{
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
         const data = await response.json();
+        console.log(data);
 
-        loadingScreen.classList.remove('active');
-        userInfoContainer.classList.add('active');
-        renderWeatherInfo(data);
+        if(data?.cod === '404'){
+            loadingScreen.classList.remove('active');
+            searchForm.classList.remove('active');
+            showError.classList.add('active');
+        }
+        else{
+            loadingScreen.classList.remove('active');
+            userInfoContainer.classList.add('active');
+            renderWeatherInfo(data);
+        }
     }
 
     catch(e){
         loadingScreen.classList.remove('active');
-        userInfoContainer.classList.remove('active');
-        console.log("loc not found");
-        //error 404 add krnahai
-        showError.classList.add('active');
-
-
     }
 } 
