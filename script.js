@@ -14,6 +14,7 @@ currentTab.classList.add('current-tab');
 getfromSessionStorage();
 
 function switchTab(clickedTab){
+    // showError.classList.remove('active');
     if (currentTab != clickedTab){
         currentTab.classList.remove('current-tab'); //background colour htaya grey wala
         currentTab = clickedTab;                    //tab switch
