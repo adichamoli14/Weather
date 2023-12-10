@@ -30,7 +30,7 @@ To run this project locally:
 
 ## Live link to the Project
 
-- https://adichamoli14.github.io/Weather/
+https://adichamoli14.github.io/Weather/
 
 ## API Usage
 
