@@ -14,7 +14,6 @@ currentTab.classList.add('current-tab');
 getfromSessionStorage();
 
 function switchTab(clickedTab){
-    // showError.classList.remove('active');
     if (currentTab != clickedTab){
         currentTab.classList.remove('current-tab'); //background colour htaya grey wala
         currentTab = clickedTab;                    //tab switch
@@ -83,12 +82,12 @@ async function fetchUserWeatherInfo(coordinates){
 
         //main UI ko dikhana hai jo puri info dikhaega
         userInfoContainer.classList.add('active');
+        showError.classList.remove('active');
 
         //function jo data se value nikaal k UI pe render krega
         renderWeatherInfo(data);
     }
     catch(e){
-        //baad mei krna hai error 404 add krna hai
         loadingScreen.classList.remove('active');
 
     }
@@ -171,16 +170,20 @@ async function fetchSearchWeatherInfo(city){
         if(data?.cod === '404'){
             loadingScreen.classList.remove('active');
             searchForm.classList.remove('active');
+            userInfoContainer.classList.remove('active');
             showError.classList.add('active');
         }
         else{
             loadingScreen.classList.remove('active');
             userInfoContainer.classList.add('active');
+            showError.classList.remove('active');
             renderWeatherInfo(data);
         }
     }
 
     catch(e){
         loadingScreen.classList.remove('active');
+        showError.classList.remove('active');
+        userInfoContainer.classList.remove('active');
     }
 } 
